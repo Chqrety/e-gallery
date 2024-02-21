@@ -73,7 +73,7 @@ include('cek_login.php');
                     <article class="border border-secondary/50 w-72 h-72 rounded-lg bg-white p-4">
                         <div class="grid grid-cols-1 place-items-center h-full gap-2">
                             <div class="flex flex-col items-center">
-                                <span class="font-semibold text-lg">Album: <?php echo $albumName; ?></span>
+                                <span class="font-semibold text-lg"><?php echo $albumName; ?></span>
                                 <span class="text-secondary/50">by User: <?php echo $userName; ?></span>
                             </div>
                         </div>
