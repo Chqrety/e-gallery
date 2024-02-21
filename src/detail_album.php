@@ -27,6 +27,7 @@ if (isset($_GET['id'])) {
     }
 }
 
+// query untuk mengambil data foto  dari database berdasarkan album
 $queryPhoto = "SELECT foto.FotoId, foto.LokasiFile, album.NamaAlbum, user.UserId, user.Username, COUNT(likefoto.LikeId) AS JumlahLike, COUNT(komentarfoto.KomentarId) AS JumlahKomentar
 FROM foto
 INNER JOIN user ON foto.UserId = user.UserId
@@ -48,7 +49,7 @@ $action = $userIdAktif === $userId ? 'flex' : 'hidden';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E - Gallery</title>
+    <title>E - Gallery | Album</title>
 
     <!-- link font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +73,7 @@ $action = $userIdAktif === $userId ? 'flex' : 'hidden';
 
 <body>
     <header>
+        <!-- menambahkan navbar -->
         <?php
         $currentPage = 'album';
         include('navbar.php');
@@ -94,6 +96,7 @@ $action = $userIdAktif === $userId ? 'flex' : 'hidden';
             </div>
         </div>
         <div class="grid grid-cols-5 gap-5">
+            <!-- perulangan untuk foto darin DB -->
             <?php foreach ($resultPhoto as $row) :
 
                 $photoId = $row['FotoId'];
@@ -112,6 +115,7 @@ $action = $userIdAktif === $userId ? 'flex' : 'hidden';
                         <span class="italic"><?= $row['NamaAlbum'] ?></span>
                     </div>
                     <div class="overflow-hidden">
+                        <!-- button untuk pindah halaman ke detail foto -->
                         <img onclick="window.location.href='detail_photo.php?id=<?= $row['FotoId'] ?>'" src="<?= $row['LokasiFile'] ?>" alt="random unsplash image" class="w-full h-full object-cover object-center cursor-pointer">
                     </div>
                     <div class="border-b border-x border-secondary/30 rounded-b-lg w-full">

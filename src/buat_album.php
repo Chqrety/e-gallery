@@ -1,3 +1,4 @@
+<!-- script cek login -->
 <?php
 include('cek_login.php');
 ?>
@@ -32,6 +33,7 @@ include('cek_login.php');
 
 <body>
     <header>
+        <!-- menambahkan navbar -->
         <?php
         $currentPage = 'album';
         include('navbar.php');
@@ -41,6 +43,7 @@ include('cek_login.php');
         <div class="mb-20">
             <span class="font-bold text-2xl">Create Album</span>
         </div>
+        <!-- form untuk membuat album -->
         <form method="POST" action="proses_buat_album.php">
             <div class="max-w-xl mb-5">
                 <label class="font-semibold">Nama Album</label>

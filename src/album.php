@@ -1,3 +1,4 @@
+<!-- menambahkan script untuk cek login -->
 <?php
 include('cek_login.php');
 ?>

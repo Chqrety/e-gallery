@@ -15,8 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $lokasiFile = $_FILES["Foto"]["tmp_name"];
     $namaFile = $_FILES["Foto"]["name"];
 
-    // echo $_FILES["Foto"];
-
     // Mendapatkan UserId dari sesi
     $userId = $_SESSION['UserId'];
 

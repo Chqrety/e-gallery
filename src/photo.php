@@ -52,6 +52,7 @@ $resultPhoto = $koneksi->query($queryPhoto);
 <body>
 
     <header>
+        <!-- menambahkan navbar -->
         <?php
         $currentPage = 'photo';
         include('navbar.php');
@@ -72,11 +73,12 @@ $resultPhoto = $koneksi->query($queryPhoto);
     </section>
 
     <section class="columns-5 px-14 py-5 gap-5">
+        <!-- perulangan foto -->
         <?php foreach ($resultPhoto as $row) :
 
             $photoId = $row['FotoId'];
 
-            // menmeriksa apakah user yang login sudah like
+            // menmeriksa apakah user yang login sudah like dan menghitung like
             $checkLikeQuery = "SELECT * FROM likefoto WHERE FotoId = $photoId AND UserId = $userId";
             $resultCheckLike = mysqli_query($koneksi, $checkLikeQuery);
             $userAlreadyLiked = mysqli_num_rows($resultCheckLike) > 0;
@@ -89,6 +91,7 @@ $resultPhoto = $koneksi->query($queryPhoto);
                     <span class="italic"><?= $row['NamaAlbum'] ?></span>
                 </div>
                 <div class="overflow-hidden">
+                    <!-- redirect ke halaman detail foto -->
                     <img onclick="window.location.href='detail_photo.php?id=<?= $row['FotoId'] ?>'" src="<?= $row['LokasiFile'] ?>" alt="random unsplash image" class="w-full h-full object-cover object-center cursor-pointer">
                 </div>
                 <div class="border-b border-x border-secondary/30 rounded-b-lg w-full">

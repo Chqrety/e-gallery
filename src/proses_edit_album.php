@@ -9,17 +9,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $namaAlbum = $_POST["NamaAlbum"];
     $deskripsi = $_POST["Deskripsi"];
 
-    // Lakukan validasi atau sanitasi input sesuai kebutuhan
-    // ...
-
     // Query untuk memperbarui data album
     $queryUpdateAlbum = "UPDATE album SET NamaAlbum = '$namaAlbum', Deskripsi = '$deskripsi' WHERE AlbumId = $albumId";
 
     // Jalankan query dan periksa keberhasilannya
     if ($koneksi->query($queryUpdateAlbum)) {
         // Jika berhasil, alihkan kembali ke halaman album.php
-        header("Location: album.php");
-        exit();
+        echo '<script>alert("Album berhasil diedit");</script>';
+        echo '<script>window.location.href = "album.php";</script>';
+        exit(); //memberhantikan eksekusi script
     } else {
         // Jika gagal, tampilkan pesan kesalahan
         echo "Error updating album: " . $koneksi->error;

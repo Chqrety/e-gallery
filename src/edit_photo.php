@@ -1,3 +1,4 @@
+<!-- cek login -->
 <?php
 include('cek_login.php');
 ?>
@@ -32,26 +33,27 @@ include('cek_login.php');
 
 <body>
     <header>
+        <!-- menambahkan navabr -->
         <?php
         $currentPage = 'photo';
         include('navbar.php');
 
-        // Pastikan Anda sudah memasukkan informasi koneksi.php di sini
+        // memasukkan koneksi
         include "koneksi.php";
 
         // Query untuk mengambil data album dari database
         $queryAlbum = "SELECT AlbumId, NamaAlbum FROM album";
         $resultAlbum = $koneksi->query($queryAlbum);
 
-        // Periksa apakah ID album telah diberikan pada parameter URL
+        // Periksa apakah ID foto telah diberikan pada parameter URL
         if (isset($_GET['id'])) {
             $photoId = $_GET['id'];
 
-            // Query untuk mengambil data album dari database berdasarkan ID
+            // Query untuk mengambil data foto dari database berdasarkan ID
             $queryPhoto = "SELECT * FROM foto WHERE FotoId = $photoId";
             $resultPhoto = $koneksi->query($queryPhoto);
 
-            // Cek apakah query album berhasil dijalankan
+            // Cek apakah query foto berhasil dijalankan
             if ($resultPhoto) {
                 $rowPhoto = $resultPhoto->fetch_assoc();
                 $idPhoto = $rowPhoto['FotoId'];
@@ -61,7 +63,7 @@ include('cek_login.php');
                 $lokasiFile = $rowPhoto['LokasiFile'];
                 // ...
 
-                // Rilis hasil query album
+                // Rilis hasil query foto
                 $resultPhoto->free();
             } else {
                 echo "Error: " . $queryAlbum . "<br>" . $koneksi->error;
@@ -78,6 +80,7 @@ include('cek_login.php');
         <div class="mb-20">
             <span class="font-bold text-2xl">Edit Foto</span>
         </div>
+        <!-- form untuk proses edit photo -->
         <form method="POST" action="proses_edit_photo.php" enctype="multipart/form-data">
             <input type="text" hidden name="IdFoto" value="<?php echo htmlspecialchars($idPhoto) ?>">
             <div class="flex mb-5">

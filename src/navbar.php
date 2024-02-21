@@ -8,6 +8,7 @@
         </span>
     </div>
     <div class="flex items-center gap-x-5 text-xl font-semibold text-ascent">
+        <!-- href yang tertuju pada masing masing page -->
         <div onclick="window.location.href='index.php'" class="cursor-pointer <?php echo $currentPage === 'dashboard' ? 'text-white bg-ascent' : 'hover:bg-ascent/20'; ?> px-5 py-2 rounded-lg transition-all">Dashboard</div>
         <div onclick="window.location.href='album.php'" class="cursor-pointer <?php echo $currentPage === 'album' ? 'text-white bg-ascent' : 'hover:bg-ascent/20'; ?> px-5 py-2 rounded-lg transition-all">Album</div>
         <div onclick="window.location.href='photo.php'" class="cursor-pointer <?php echo $currentPage === 'photo' ? 'text-white bg-ascent' : 'hover:bg-ascent/20'; ?> px-5 py-2 rounded-lg transition-all">Photo</div>

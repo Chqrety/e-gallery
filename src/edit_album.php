@@ -1,3 +1,4 @@
+<!-- script cek login -->
 <?php
 include('cek_login.php');
 ?>
@@ -32,6 +33,7 @@ include('cek_login.php');
 
 <body>
     <header>
+        <!-- menambahkan navbar -->
         <?php
         $currentPage = 'album';
         include('navbar.php');
@@ -66,12 +68,11 @@ include('cek_login.php');
     // Tutup koneksi ke database
     $koneksi->close();
     ?>
-
-    <!-- Sekarang, isi nilai awal input dengan data dari database -->
     <section class="px-56 py-10">
         <div class="mb-20">
             <span class="font-bold text-2xl">Edit Album</span>
         </div>
+        <!-- fomr untuk proses edit album -->
         <form action="proses_edit_album.php" method="post">
             <input type="text" name="AlbumId" value="<?php echo htmlspecialchars($albumId); ?>" hidden>
             <div class="max-w-xl mb-5">

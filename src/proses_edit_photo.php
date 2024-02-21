@@ -13,9 +13,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $updateQuery = "UPDATE foto SET JudulFoto='$judulFoto', AlbumId='$albumId', DeskripsiFoto='$deskripsiFoto' WHERE FotoId=$idFoto";
 
     if (mysqli_query($koneksi, $updateQuery)) {
-        echo "Data foto berhasil diupdate.";
-        header("Location: photo.php"); // Redirect ke halaman photo setelah proses selesai
-        exit();
+        echo '<script>alert("Foto berhasil diedit");</script>';
+        echo '<script>window.location.href = "edit.php";</script>';
+        exit(); //memberhantikan eksekusi script
     } else {
         echo "Error: " . $updateQuery . "<br>" . mysqli_error($koneksi);
     }

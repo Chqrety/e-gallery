@@ -23,7 +23,7 @@ $resultPhoto = $koneksi->query($queryPhoto);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E - Gallery | Dashboard</title>
+    <title>E - Gallery | Dash</title>
 
     <!-- link font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,12 +47,14 @@ $resultPhoto = $koneksi->query($queryPhoto);
 
 <body>
     <header>
+        <!-- menambahkan navbar -->
         <?php
         $currentPage = 'dashboard';
         include('navbar.php');
         ?>
     </header>
     <section class="columns-5 px-14 py-5 gap-5">
+        <!-- perulangan untuk table foto -->
         <?php foreach ($resultPhoto as $row) :
 
             $photoId = $row['FotoId'];

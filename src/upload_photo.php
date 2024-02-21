@@ -1,3 +1,4 @@
+<!-- cek login -->
 <?php
 include('cek_login.php');
 ?>
@@ -32,15 +33,13 @@ include('cek_login.php');
 
 <body>
     <header>
+        <!-- menambahkan navbar -->
         <?php
         $currentPage = 'photo';
         include('navbar.php');
 
         // Pastikan Anda sudah memasukkan informasi koneksi.php di sini
         include "koneksi.php";
-
-        // Mulai atau resume sesi
-        // session_start();
 
         // Query untuk mengambil data album dari database
         $queryAlbum = "SELECT AlbumId, NamaAlbum FROM album";
@@ -96,6 +95,7 @@ include('cek_login.php');
                 </div>
             </div>
             <div class="flex justify-between">
+                <!-- redirect ke photo -->
                 <button onclick="window.location.href='photo.php'" type="button" class="flex items-center bg-red-500 py-2 px-6 text-white rounded gap-2 transition-all hover:scale-105">
                     <span class="material-symbols-rounded align-middle">
                         arrow_back_ios_new
@@ -113,6 +113,7 @@ include('cek_login.php');
     </section>
 
     <script>
+        // fitur preview image
         function handleFileSelect() {
             const fileInput = document.getElementById('fileInput');
             const previewContainer = document.getElementById('previewContainer');

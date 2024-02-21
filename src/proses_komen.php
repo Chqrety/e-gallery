@@ -1,4 +1,5 @@
 <?php
+// Memasukkan koneksi kedalam code
 include('koneksi.php');
 
 session_start();

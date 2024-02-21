@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     // Jalankan query dan periksa keberhasilannya
     if ($koneksi->query($queryDeletePhoto)) {
         // Jika berhasil, alihkan kembali ke halaman album.php
-        header("Location: photo.php");
+        header("Location: " . $_SERVER['HTTP_REFERER']);
         exit();
     } else {
         // Jika gagal, tampilkan pesan kesalahan
@@ -24,6 +24,6 @@ if (isset($_GET['id'])) {
     $koneksi->close();
 } else {
     // Jika parameter id tidak diberikan, alihkan kembali ke halaman album.php
-    header("Location: photo.php");
+    header("Location: " . $_SERVER['HTTP_REFERER']);
     exit();
 }
