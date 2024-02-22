@@ -95,7 +95,7 @@ $action = $userIdAktif === $userId ? 'flex' : 'hidden';
                 </a>
             </div>
         </div>
-        <div class="grid grid-cols-5 gap-5">
+        <div class="columns-5 gap-5">
             <!-- perulangan untuk foto darin DB -->
             <?php foreach ($resultPhoto as $row) :
 
