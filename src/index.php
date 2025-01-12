@@ -55,7 +55,7 @@ $resultPhoto = $koneksi->query($queryPhoto);
     </header>
     <section class="columns-5 px-14 py-5 gap-5">
         <!-- perulangan untuk table foto -->
-        <?php foreach ($resultPhoto as $row) :
+        <?php foreach ($resultPhoto as $row)
 
             $photoId = $row['FotoId'];
             // menmeriksa apakah user yang login sudah like
